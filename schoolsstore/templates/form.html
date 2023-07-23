@@ -1,0 +1,137 @@
+
+<body style="background-color:#ADD8E6;">
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h3 class="text-primary mb-4">FORM</h3>
+
+    <label for="inputState">NAME:</label><br>
+    <input type="text" name="NAME" placeholder="Enter the student name"><br>
+    <label for="inputState">DOB:</label><br>
+    <input type="datetime-local" name="DOB" placeholder="Enter the date of birth"><br>
+    <label for="inputState">AGE:</label><br>
+    <input type="number" name="AGE" placeholder="Enter the age"><br>
+    <label for="inputState">GENDER:</label><br>
+    <input type="text" name="GENDER" placeholder="Enter your gender" ><br>
+    <label for="inputState">PH:</label><br>
+    <input type="number" name="Phone Number" placeholder="Enter your PH" ><br>
+    <label for="inputState">MAIL ID:</label><br>
+    <input type="email" name="MAIL ID" placeholder="Enter your email" ><br>
+    <label for="inputState">ADDRESS:</label><br>
+    <input type="text" name="ADDRESS" placeholder="Enter your address" ><br>
+
+    <script>
+    var subjectObject = {
+        "Medical": {
+            "MBBS": [],
+            "BHMS": [],
+            "BDS": []
+        },
+        "Engineering": {
+            "CSE": [],
+            "ECE": [],
+            "CIVIL": []
+        },
+        "LAW": {
+            "LLB": [],
+            "BA LLB": [],
+            "LLM": []
+        },
+        "BUSINESS": {
+            "B com": [],
+            "BBA": [],
+            "MBA": []
+        },
+        "LITERATURE": {
+            "ENGLISH": [],
+            "SANSKRIT": [],
+            "MALAYALAM": []
+        },
+
+        }
+    window.onload = function() {
+        var subjectSel = document.getElementById("subject");
+        var CoursesSel = document.getElementById("Courses");
+
+        for (var x in subjectObject) {
+            subjectSel.options[subjectSel.options.length] = new Option(x, x);
+        }
+        subjectSel.onchange = function() {
+        //empty Courses- dropdowns
+
+        CoursesSel.length = 1;
+            //display correct values
+        for (var y in subjectObject[this.value]) {
+        CoursesSel.options[CoursesSel.options.length] = new Option(y, y);
+        }
+        }
+
+    }
+    </script>
+
+
+
+
+
+    <form name="form1" id="form1" action="/action_page.php">
+    DEPARTMENTS:<br> <select name="subject" id="subject">
+                    <option value="" selected="selected">Select department</option>
+            </select>
+            <br>
+    COURSES:<br> <select name="Courses" id="Courses">
+                    <option value="" selected="selected">Please select department first</option>
+            </select>
+            <br>
+
+    </form>
+
+
+
+    <div class="col-auto my-1">
+      <label for="inputState">PURPOSE:</label>
+      <select id="inputState" class="form-control">
+        <option selected>Choose...</option>
+        <option value="1">For Enquiry</option>
+        <option value="2">Place Order</option>
+        <option value="3">Return</option>
+      </select>
+    </div>
+    <br>
+
+<!--    <input type="text" name="Materials Provided">-->
+        <div class="form-check"><label for="inputState">MATERIALS PROVIDED:</label><br>
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Notebook</label>
+        </div>
+        <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck2">
+        <label class="form-check-label" for="exampleCheck2">Pen</label>
+        </div>
+        <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck3">
+        <label class="form-check-label" for="exampleCheck3">ExamPaper</label>
+        </div>
+        <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck4">
+        <label class="form-check-label" for="exampleCheck4">Syllabus</label>
+        </div>
+    <br>
+
+        <form action="logout" onsubmit="myFunction()">
+        <input type="submit" value="Submit">
+
+        </form>
+
+        <script>
+        function myFunction() {
+        alert("Order Confirmed")
+
+        }
+        </script>
+
+        <form action="logout" >
+
+        <input type="submit" value="logout">
+        </form>
+
+</form>
+</body>
